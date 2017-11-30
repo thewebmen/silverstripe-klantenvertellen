@@ -1,0 +1,7 @@
+---
+Name: klantenvertellen
+---
+
+SilverStripe\SiteConfig\SiteConfig:
+  extensions:
+    - TheWebmen\KlantenVertellen\SiteConfigExtension
