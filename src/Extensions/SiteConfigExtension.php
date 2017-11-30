@@ -2,6 +2,7 @@
 
 namespace TheWebmen\KlantenVertellen;
 
+use SilverStripe\Control\Controller;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\LiteralField;
 use SilverStripe\Forms\TextField;
@@ -23,6 +24,14 @@ class SiteConfigExtension extends DataExtension {
         $data = $this->owner->KlantenvertellenData();
         if($data && $data->exists()){
             $fields->addFieldToTab('Root.Klantenvertellen', LiteralField::create('KlantenvertellenSummaryTable', $data->AdminSummaryTable()));
+        }
+    }
+
+    public function onAfterWrite()
+    {
+        if($this->owner->isChanged('KlantenvertellenSlug')){
+            $task = new KlantenvertellenUpdateTask();
+            $task->run(Controller::curr()->getRequest(), $this->owner->ID);
         }
     }
 

@@ -12,9 +12,11 @@ class KlantenvertellenUpdateTask extends BuildTask
     protected $title = 'Klantenvertellen data retrieve';
     protected $description = 'Update the klantenvertellen data';
 
-    public function run($request)
+    public function run($request, $configID = false)
     {
-        $configID = $request->getVar('configid');
+        if(!$configID){
+            $configID = $request->getVar('configid');
+        }
         $configs = SiteConfig::get()->exclude('KlantenvertellenSlug', null);
         if($configID){
             $configs = $configs->filter('ID', $configID);
