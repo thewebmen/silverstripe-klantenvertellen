@@ -1,22 +1,22 @@
 <table class="table">
     <tr>
         <th>Gemiddelde</th>
-        <td>$Avarage</td>
+        <td style="width: 95%">$Avarage</td>
     </tr>
     <tr>
         <th>Aantal reviews</th>
-        <td>$NumReviews</td>
+        <td style="width: 95%">$NumReviews</td>
     </tr>
     <tr>
         <th>Aanbevelingspercentage</th>
-        <td>$PercentageRecommend</td>
+        <td style="width: 95%">$PercentageRecommend</td>
     </tr>
     <% loop $GradesList %>
         <tr>
             <th>
                 $Title
             </th>
-            <td>
+            <td style="width: 95%">
                 $Grade
             </td>
         </tr>
