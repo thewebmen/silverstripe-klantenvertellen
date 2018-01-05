@@ -7,6 +7,8 @@ use SilverStripe\ORM\DataObject;
 
 class KlantenvertellenData extends DataObject {
 
+    private static $table_name = 'TheWebmen_KlantenvertellenData';
+
     private static $db = array(
         'Avarage' => 'Varchar',
         'NumReviews' => 'Int',
